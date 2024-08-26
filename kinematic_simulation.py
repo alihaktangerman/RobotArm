@@ -70,7 +70,7 @@ class projected_space:
         r_theta = np.array([-np.cos(self.rho)*np.sin(self.theta),np.cos(self.rho)*np.cos(self.theta),0.])
         r_theta /= np.linalg.norm(r_theta)
         r_rho = np.array([-np.sin(self.rho)*np.cos(self.theta),-np.sin(self.rho)*np.sin(self.theta),np.cos(self.rho)])
-        r_theta /= np.linalg.norm(r_rho)
+        r_rho /= np.linalg.norm(r_rho)
         A = np.array([r_theta,r_rho])
         P =  np.linalg.inv(A@A.transpose())@A
         return P@loc
